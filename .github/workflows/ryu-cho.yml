@@ -1,0 +1,23 @@
+name: ryu-cho
+
+on:
+  schedule:
+    - cron: '0 * * * *' # 00:00  https://crontab.guru/
+  workflow_dispatch: # on button click
+
+jobs:
+  ryu-cho:
+    name: Ryu Cho
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vuejs-translations/ryu-cho@v1
+        with:
+          access-token: ${{ secrets.UPSTREAM_SYNC_TOKEN }}
+          username: FriAfternoon
+          email: "1480537303@qq.com"
+          upstream-repo: https://github.com/FriAfternoon/2
+          upstream-repo-branch: dev
+          head-repo: https://github.com/FriAfternoon/1
+          head-repo-branch: main
+          track-from: 68eac6db091a8f2219dc52d6587cf17393a0fba3
+          workflow-name: ryu-cho
